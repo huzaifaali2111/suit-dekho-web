@@ -1,0 +1,4 @@
+<x-layout name="index">
+   <h1>This is index page</h1>
+</x-layout>
+
