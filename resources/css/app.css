@@ -1,11 +1,88 @@
-@import 'tailwindcss';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@import "tailwindcss";
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: "Inter", sans-serif;
+    --font-display: "Inter", sans-serif;
+
+    --color-border: hsl(var(--border));
+    --color-input: hsl(var(--input));
+    --color-ring: hsl(var(--ring));
+    --color-background: hsl(var(--background));
+    --color-foreground: hsl(var(--foreground));
+
+    --color-primary: hsl(var(--primary));
+    --color-primary-foreground: hsl(var(--primary-foreground));
+
+    --color-secondary: hsl(var(--secondary));
+    --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+    --color-muted: hsl(var(--muted));
+    --color-muted-foreground: hsl(var(--muted-foreground));
+
+    --color-accent: hsl(var(--accent));
+    --color-accent-foreground: hsl(var(--accent-foreground));
+
+    --color-card: hsl(var(--card));
+    --color-card-foreground: hsl(var(--card-foreground));
+
+    --text-xxs: 0.65rem;
+}
+
+/* Custom CSS Variables */
+:root {
+    --background: 40 33% 98%;
+    --foreground: 210 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 15%;
+    --primary: 343 62% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 32 40% 94%;
+    --secondary-foreground: 210 15% 20%;
+    --muted: 30 22% 94%;
+    --muted-foreground: 210 10% 45%;
+    --accent: 27 80% 88%;
+    --accent-foreground: 210 15% 20%;
+    --border: 27 24% 88%;
+    --input: 27 24% 90%;
+    --radius: 0.5rem;
+}
+
+/* Utilities */
+[x-cloak] {
+    display: none !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Range Slider Styles */
+input[type=range]::-webkit-slider-thumb {
+    pointer-events: all;
+    width: 16px;
+    height: 16px;
+    -webkit-appearance: none;
+    background-color: hsl(var(--primary));
+    border-radius: 9999px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border-width: 2px;
+    border-color: #ffffff;
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    pointer-events: all;
+    width: 16px;
+    height: 16px;
+    background-color: hsl(var(--primary));
+    border-radius: 9999px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border-width: 2px;
+    border-color: #ffffff;
+    cursor: pointer;
 }
