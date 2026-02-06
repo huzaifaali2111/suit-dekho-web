@@ -1,20 +1,8 @@
-
 <x-layout name="shop">
+    <main class="min-h-screen pb-20 md:pb-10 bg-background">
 
-    <!-- Tailwind CSS (Vite) -->
-    
-    
-    
-    
-    
-    
-    
-    
-    <main class="min-h-screen pb-20 md:pb-10 bg-background"
-        x-data="{ mobileFiltersOpen: false, minPrice: 0, maxPrice: 20000, min: 0, max: 20000 }">
-    
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-    
+
             <!-- Breadcrumb & Title -->
             <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
                 <div>
@@ -26,10 +14,10 @@
                     <h1 class="text-2xl font-display font-bold text-foreground">All Suits <span
                             class="text-sm font-sans font-normal text-muted-foreground ml-2">(1,240 Items)</span></h1>
                 </div>
-    
+
                 <!-- Mobile Filter Toggle & Sort -->
                 <div class="flex gap-2 w-full md:w-auto">
-                    <button @click="mobileFiltersOpen = true"
+                    <button id="mobileFilterButton"
                         class="md:hidden flex-1 flex items-center justify-center gap-2 bg-white border border-border px-4 py-2.5 rounded-lg text-sm font-bold shadow-sm">
                         <i class="fa-solid fa-filter"></i> Filters
                     </button>
@@ -48,9 +36,9 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="flex gap-8">
-    
+
                 <!-- Sidebar Filters (Desktop) -->
                 <aside class="hidden md:block w-64 flex-shrink-0">
                     <div
@@ -59,7 +47,7 @@
                             <h3 class="font-bold text-foreground">Filters</h3>
                             <button class="text-xs text-primary hover:underline">Reset All</button>
                         </div>
-    
+
                         <!-- Category (Stitched/Unstitched) -->
                         <div class="mb-6">
                             <h4 class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">Category
@@ -84,30 +72,30 @@
                                 </label>
                             </div>
                         </div>
-    
+
                         <!-- Price Range Slider -->
                         <div class="mb-6">
                             <h4 class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">Price
                                 Range</h4>
                             <div class="mb-4">
                                 <div class="relative h-1 bg-gray-200 rounded-full">
-                                    <div class="absolute h-full bg-primary rounded-full"
-                                        :style="'left: ' + ((minPrice - min) / (max - min) * 100) + '%; right: ' + (100 - (maxPrice - min) / (max - min) * 100) + '%'">
+                                    <div id="sliderProgress" class="absolute h-full bg-primary rounded-full"
+                                        style="left: 0%; right: 0%">
                                     </div>
                                 </div>
                                 <div class="relative">
-                                    <input type="range" min="0" max="20000" step="100" x-model="minPrice"
+                                    <input type="range" id="minPriceInput" min="0" max="20000" step="100" value="0"
                                         class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-1">
-                                    <input type="range" min="0" max="20000" step="100" x-model="maxPrice"
+                                    <input type="range" id="maxPriceInput" min="0" max="20000" step="100" value="20000"
                                         class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-1">
                                 </div>
                             </div>
                             <div class="flex items-center justify-between text-xs font-bold text-foreground">
-                                <span>Rs. <span x-text="minPrice"></span></span>
-                                <span>Rs. <span x-text="maxPrice"></span></span>
+                                <span>Rs. <span id="minPriceText">0</span></span>
+                                <span>Rs. <span id="maxPriceText">20000</span></span>
                             </div>
                         </div>
-    
+
                         <!-- Brand Filter -->
                         <div class="mb-6">
                             <h4 class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">Brands
@@ -163,7 +151,7 @@
                                 </label>
                             </div>
                         </div>
-    
+
                         <!-- Fabric -->
                         <div class="mb-6">
                             <h4 class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">Fabric
@@ -185,7 +173,7 @@
                                     class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition">Organza</button>
                             </div>
                         </div>
-    
+
                         <!-- Pieces -->
                         <div class="mb-6">
                             <h4 class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">Pieces
@@ -211,7 +199,7 @@
                                 </label>
                             </div>
                         </div>
-    
+
                         <!-- Collection -->
                         <div class="mb-6">
                             <h4 class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">Collection
@@ -243,7 +231,7 @@
                                 </label>
                             </div>
                         </div>
-    
+
                         <!-- Color -->
                         <div>
                             <h4 class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">Color</h4>
@@ -268,11 +256,11 @@
                         </div>
                     </div>
                 </aside>
-    
+
                 <!-- Product Grid -->
                 <div class="flex-1">
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    
+
                         <!-- Product Card 1 -->
                         <div
                             class="hover-lift bg-white border border-border rounded-lg overflow-hidden hover:shadow-lg transition group">
@@ -306,7 +294,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <!-- Product Card 2 -->
                         <div
                             class="hover-lift bg-white border border-border rounded-lg overflow-hidden hover:shadow-lg transition group">
@@ -340,7 +328,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <!-- Product Card 3 -->
                         <div
                             class="hover-lift bg-white border border-border rounded-lg overflow-hidden hover:shadow-lg transition group">
@@ -374,7 +362,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <!-- Product Card 4 -->
                         <div
                             class="bg-white border border-border rounded-lg overflow-hidden hover:shadow-lg transition group">
@@ -408,7 +396,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <!-- Product Card 5 -->
                         <div
                             class="bg-white border border-border rounded-lg overflow-hidden hover:shadow-lg transition group">
@@ -442,7 +430,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <!-- Product Card 6 -->
                         <div
                             class="bg-white border border-border rounded-lg overflow-hidden hover:shadow-lg transition group">
@@ -476,9 +464,9 @@
                                 </div>
                             </div>
                         </div>
-    
+
                     </div>
-    
+
                     <!-- Pagination -->
                     <div class="mt-10 flex justify-center">
                         <nav class="flex items-center gap-2">
@@ -500,7 +488,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Mobile Filter Drawer -->
         <div x-show="mobileFiltersOpen" style="display: none;" class="relative z-50" aria-labelledby="slide-over-title"
             role="dialog" aria-modal="true">
@@ -508,104 +496,112 @@
                 x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
                 x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
-                class="fixed inset-0 bg-foreground/20 backdrop-blur-sm transition-opacity"
-                @click="mobileFiltersOpen = false"></div>
-    
-            <div class="fixed inset-0 overflow-hidden">
-                <div class="absolute inset-0 overflow-hidden">
-                    <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-                        <div x-show="mobileFiltersOpen"
-                            x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
-                            x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
-                            x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
-                            x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
-                            class="pointer-events-auto relative w-screen max-w-xs">
-                            <div class="flex h-full flex-col overflow-y-scroll bg-background shadow-2xl">
-                                <div class="px-6 py-4 border-b border-border bg-secondary/30">
-                                    <div class="flex items-center justify-between">
-                                        <h2 class="text-lg font-display font-bold text-foreground">Filters</h2>
-                                        <button type="button"
-                                            class="rounded-md text-muted-foreground hover:text-foreground focus:outline-none"
-                                            @click="mobileFiltersOpen = false">
-                                            <span class="sr-only">Close panel</span>
-                                            <i class="fa-solid fa-xmark text-xl"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="relative mt-6 flex-1 px-6 pb-20">
-    
-                                    <!-- Mobile Filter Content -->
-                                    <div class="mb-6">
-                                        <h4
-                                            class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
-                                            Category</h4>
-                                        <div class="space-y-3">
-                                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio"
-                                                    name="m-category" class="border-gray-300 text-primary" checked>
-                                                <span class="text-sm">All</span></label>
-                                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio"
-                                                    name="m-category" class="border-gray-300 text-primary"> <span
-                                                    class="text-sm">Unstitched</span></label>
-                                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio"
-                                                    name="m-category" class="border-gray-300 text-primary"> <span
-                                                    class="text-sm">Stitched</span></label>
-                                        </div>
-                                    </div>
-    
-                                    <div class="mb-6">
-                                        <h4
-                                            class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
-                                            Price Range</h4>
-                                        <div class="flex items-center justify-between text-sm font-bold mb-2">
-                                            <span>Rs. <span x-text="minPrice"></span></span>
-                                            <span>Rs. <span x-text="maxPrice"></span></span>
-                                        </div>
-                                        <div class="relative h-1 bg-gray-200 rounded-full mb-4">
-                                            <div class="absolute h-full bg-primary rounded-full"
-                                                :style="'left: ' + ((minPrice - min) / (max - min) * 100) + '%; right: ' + (100 - (maxPrice - min) / (max - min) * 100) + '%'">
+                class="fixed inset-0 bg-foreground/20 backdrop-blur-sm transition-opacity" <!-- Mobile Filter Drawer -->
+                <div id="mobileFilterDrawer" class="relative z-50 hidden" aria-labelledby="slide-over-title"
+                    role="dialog" aria-modal="true">
+                    <div id="mobileFilterOverlay"
+                        class="fixed inset-0 bg-black/50 transition-opacity opacity-0 transition-ease-in-out duration-500">
+                    </div>
+
+                    <div class="fixed inset-0 overflow-hidden">
+                        <div class="absolute inset-0 overflow-hidden">
+                            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                                <div id="mobileFilterPanel"
+                                    class="pointer-events-auto relative w-screen max-w-xs transform transition ease-in-out duration-500 translate-x-full">
+                                    <div class="flex h-full flex-col overflow-y-scroll bg-background shadow-2xl">
+                                        <div class="px-6 py-4 border-b border-border bg-secondary/30">
+                                            <div class="flex items-center justify-between">
+                                                <h2 class="text-lg font-display font-bold text-foreground">Filters</h2>
+                                                <button id="closeFilterButton" type="button"
+                                                    class="rounded-md text-muted-foreground hover:text-foreground focus:outline-none">
+                                                    <span class="sr-only">Close panel</span>
+                                                    <i class="fa-solid fa-xmark text-xl"></i>
+                                                </button>
                                             </div>
-                                            <input type="range" min="0" max="20000" step="100" x-model="minPrice"
-                                                class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-0">
-                                            <input type="range" min="0" max="20000" step="100" x-model="maxPrice"
-                                                class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-0">
+                                        </div>
+                                        <div class="relative mt-6 flex-1 px-6 pb-20">
+
+                                            <!-- Mobile Filter Content -->
+                                            <div class="mb-6">
+                                                <h4
+                                                    class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
+                                                    Category</h4>
+                                                <div class="space-y-3">
+                                                    <label class="flex items-center gap-2 cursor-pointer"><input
+                                                            type="radio" name="m-category"
+                                                            class="border-gray-300 text-primary" checked>
+                                                        <span class="text-sm">All</span></label>
+                                                    <label class="flex items-center gap-2 cursor-pointer"><input
+                                                            type="radio" name="m-category"
+                                                            class="border-gray-300 text-primary"> <span
+                                                            class="text-sm">Unstitched</span></label>
+                                                    <label class="flex items-center gap-2 cursor-pointer"><input
+                                                            type="radio" name="m-category"
+                                                            class="border-gray-300 text-primary"> <span
+                                                            class="text-sm">Stitched</span></label>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-6">
+                                                <h4
+                                                    class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
+                                                    Price Range</h4>
+                                                <div class="flex items-center justify-between text-sm font-bold mb-2">
+                                                    <span>Rs. <span id="minPriceTextMobile">0</span></span>
+                                                    <span>Rs. <span id="maxPriceTextMobile">20000</span></span>
+                                                </div>
+                                                <div class="relative h-1 bg-gray-200 rounded-full mb-4">
+                                                    <div id="mobileSliderProgress"
+                                                        class="absolute h-full bg-primary rounded-full"
+                                                        style="left: 0%; right: 0%">
+                                                    </div>
+                                                    <input type="range" id="minPriceInputMobile" min="0" max="20000"
+                                                        step="100" value="0"
+                                                        class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-0">
+                                                    <input type="range" id="maxPriceInputMobile" min="0" max="20000"
+                                                        step="100" value="20000"
+                                                        class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-0">
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-6">
+                                                <h4
+                                                    class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
+                                                    Brands</h4>
+                                                <div class="space-y-3">
+                                                    <label class="flex items-center gap-2 cursor-pointer"><input
+                                                            type="checkbox"
+                                                            class="rounded border-gray-300 text-primary"> <span
+                                                            class="text-sm">Sapphire</span></label>
+                                                    <label class="flex items-center gap-2 cursor-pointer"><input
+                                                            type="checkbox"
+                                                            class="rounded border-gray-300 text-primary"> <span
+                                                            class="text-sm">Khaadi</span></label>
+                                                    <label class="flex items-center gap-2 cursor-pointer"><input
+                                                            type="checkbox"
+                                                            class="rounded border-gray-300 text-primary"> <span
+                                                            class="text-sm">Gul Ahmed</span></label>
+                                                    <label class="flex items-center gap-2 cursor-pointer"><input
+                                                            type="checkbox"
+                                                            class="rounded border-gray-300 text-primary"> <span
+                                                            class="text-sm">Maria.B</span></label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div
+                                            class="absolute bottom-0 left-0 w-full p-4 bg-white border-t border-border">
+                                            <button
+                                                class="w-full bg-primary text-white font-bold py-3 rounded-lg shadow-lg"
+                                                @click="mobileFiltersOpen = false">Apply Filters</button>
                                         </div>
                                     </div>
-    
-                                    <div class="mb-6">
-                                        <h4
-                                            class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
-                                            Brands</h4>
-                                        <div class="space-y-3">
-                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
-                                                    class="rounded border-gray-300 text-primary"> <span
-                                                    class="text-sm">Sapphire</span></label>
-                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
-                                                    class="rounded border-gray-300 text-primary"> <span
-                                                    class="text-sm">Khaadi</span></label>
-                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
-                                                    class="rounded border-gray-300 text-primary"> <span
-                                                    class="text-sm">Gul Ahmed</span></label>
-                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
-                                                    class="rounded border-gray-300 text-primary"> <span
-                                                    class="text-sm">Maria.B</span></label>
-                                        </div>
-                                    </div>
-    
-                                </div>
-                                <div class="absolute bottom-0 left-0 w-full p-4 bg-white border-t border-border">
-                                    <button class="w-full bg-primary text-white font-bold py-3 rounded-lg shadow-lg"
-                                        @click="mobileFiltersOpen = false">Apply Filters</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    
+
     </main>
+    <script src="{{ asset('assets/js/shop.js') }}"></script>
 </x-layout>
-
-
-
-
