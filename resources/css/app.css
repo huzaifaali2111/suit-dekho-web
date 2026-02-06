@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+/* 1. CSS Variables & Global Resets */
+:root {
+    --background: 40 33% 98%;
+    --foreground: 210 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 15%;
+    --primary: 343 62% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 32 40% 94%;
+    --secondary-foreground: 210 15% 20%;
+    --muted: 30 22% 94%;
+    --muted-foreground: 210 10% 45%;
+    --accent: 27 80% 88%;
+    --accent-foreground: 210 15% 20%;
+    --border: 27 24% 88%;
+    --input: 27 24% 90%;
+    --radius: 0.5rem;
+}
+
+/* 2. Theme Configuration */
 @theme {
     --font-sans: "Inter", sans-serif;
     --font-display: "Inter", sans-serif;
@@ -28,61 +48,93 @@
     --text-xxs: 0.65rem;
 }
 
-/* Custom CSS Variables */
-:root {
-    --background: 40 33% 98%;
-    --foreground: 210 15% 15%;
-    --card: 0 0% 100%;
-    --card-foreground: 210 15% 15%;
-    --primary: 343 62% 54%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 32 40% 94%;
-    --secondary-foreground: 210 15% 20%;
-    --muted: 30 22% 94%;
-    --muted-foreground: 210 10% 45%;
-    --accent: 27 80% 88%;
-    --accent-foreground: 210 15% 20%;
-    --border: 27 24% 88%;
-    --input: 27 24% 90%;
-    --radius: 0.5rem;
+/* 3. Base Layer (Global HTML elements) */
+@layer base {
+    ::selection {
+        background-color: hsl(var(--primary));
+        color: white;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+
+    html::-webkit-scrollbar {
+        width: 9px;
+        
+    }
+
+    html::-webkit-scrollbar-track {
+        background: hsl(32 40% 94%);
+        border-radius: 10px;
+    }
+
+    html::-webkit-scrollbar-thumb {
+        background-color: hsl(var(--primary));
+        border-radius: 10px;
+        
+    }
+
+    /* Range Slider Styling */
+    input[type=range]::-webkit-slider-thumb {
+        pointer-events: all;
+        width: 16px;
+        height: 16px;
+        -webkit-appearance: none;
+        background-color: hsl(var(--primary));
+        border-radius: 9999px;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        border-width: 2px;
+        border-color: #ffffff;
+        cursor: pointer;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        pointer-events: all;
+        width: 16px;
+        height: 16px;
+        background-color: hsl(var(--primary));
+        border-radius: 9999px;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        border-width: 2px;
+        border-color: #ffffff;
+        cursor: pointer;
+    }
 }
 
-/* Utilities */
-[x-cloak] {
-    display: none !important;
+/* 4. Components Layer (Reusable UI classes) */
+@layer components {
+
+    .custom-scrollbar::-webkit-scrollbar {
+        height: 6px;
+        width: 5px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: hsl(32 40% 94%);
+        margin-block: 4px;
+        border-radius: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: hsl(var(--primary));
+        border-radius: 10px;
+        background-clip: padding-box;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: hsl(343 62% 45%);
+    }
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
-}
 
-.hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
+@layer utilities {
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 
-/* Range Slider Styles */
-input[type=range]::-webkit-slider-thumb {
-    pointer-events: all;
-    width: 16px;
-    height: 16px;
-    -webkit-appearance: none;
-    background-color: hsl(var(--primary));
-    border-radius: 9999px;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    border-width: 2px;
-    border-color: #ffffff;
-    cursor: pointer;
-}
-
-input[type=range]::-moz-range-thumb {
-    pointer-events: all;
-    width: 16px;
-    height: 16px;
-    background-color: hsl(var(--primary));
-    border-radius: 9999px;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    border-width: 2px;
-    border-color: #ffffff;
-    cursor: pointer;
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }

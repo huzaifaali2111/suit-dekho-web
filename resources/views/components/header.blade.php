@@ -6,8 +6,8 @@
         <span class="text-white/80 whitespace-nowrap">Khaadi Sale Live (Up to 50% Off)</span>
     </div>
     <div class="hidden lg:flex gap-4">
-        <span><i class="fa-solid fa-database mr-1 text-primary"></i> 12,405 Suits Indexed</span>
-        <span><i class="fa-solid fa-store mr-1 text-primary"></i> 45 Brands</span>
+        <span><i class="fa-solid fa-database mr-1"></i> 12,405 Suits Indexed</span>
+        <span><i class="fa-solid fa-store mr-1"></i> 45 Brands</span>
     </div>
 </div>
 

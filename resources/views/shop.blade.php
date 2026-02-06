@@ -40,7 +40,7 @@
             <div class="flex gap-8">
 
                 <!-- Sidebar Filters (Desktop) -->
-                <aside class="hidden md:block w-64 flex-shrink-0">
+                <aside class="hidden md:block w-64 shrink-0">
                     <div
                         class="bg-white border border-border rounded-xl p-5 sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto hide-scrollbar">
                         <div class="flex items-center justify-between mb-4">
@@ -55,7 +55,7 @@
                             <div class="space-y-2">
                                 <label class="flex items-center gap-2 cursor-pointer group">
                                     <input type="radio" name="category"
-                                        class="border-gray-300 text-primary focus:ring-primary" checked>
+                                        class="border-gray-300 text-primary focus:ring-primary checked:--color-foreground" checked>
                                     <span class="text-sm text-foreground group-hover:text-primary transition">All</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
@@ -233,7 +233,7 @@
                         </div>
 
                         <!-- Color -->
-                        <div>
+                        <!-- <div>
                             <h4 class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">Color</h4>
                             <div class="flex flex-wrap gap-3">
                                 <button
@@ -253,7 +253,7 @@
                                 <button
                                     class="w-6 h-6 rounded-full bg-pink-500 border border-border hover:ring-2 ring-primary ring-offset-2"></button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </aside>
 
@@ -264,7 +264,7 @@
                         <!-- Product Card 1 -->
                         <div
                             class="hover-lift bg-white border border-border rounded-lg overflow-hidden hover:shadow-lg transition group">
-                            <div class="relative aspect-[3/4] bg-gray-100">
+                            <div class="relative aspect-3/4 bg-gray-100">
                                 <img src="https://images.unsplash.com/photo-1605763240004-7e93b172d754?w=600&q=80"
                                     class="w-full h-full object-cover">
                                 <div
@@ -603,5 +603,5 @@
                 </div>
 
     </main>
-    <script src="{{ asset('assets/js/shop.js') }}"></script>
+    <script src="{{ asset(path: 'assets/js/shop.js') }}"></script>
 </x-layout>
