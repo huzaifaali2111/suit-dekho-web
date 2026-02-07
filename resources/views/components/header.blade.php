@@ -95,35 +95,45 @@
                                 </div>
 
                                 <div
-                                    class="relative rounded-lg overflow-hidden group/card bg-gray-100 h-full min-h-[180px] md:min-h-[220px] order-first md:order-none">
-                                    <div class="absolute inset-0 bg-gray-300">
-                                    </div>
-                                    <div
-                                        class="absolute inset-0 bg-black/20 group-hover/card:bg-black/10 transition-colors">
-                                    </div>
-                                    <div
-                                        class="absolute bottom-0 left-0 p-4 w-full bg-gradient-to-t from-black/80 to-transparent">
+                                    class="relative rounded-lg overflow-hidden group/card h-full min-h-[180px] md:min-h-[220px] order-first md:order-none cursor-pointer">
+                                
+                                    <img src="{{ asset('assets/img/eid_collection.webp') }}" alt="Eid Collection"
+                                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105">
+                                
+                                    <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300"></div>
+                                
+                                    <div class="absolute bottom-0 left-0 p-4 w-full bg-gradient-to-t from-black/90 via-black/40 to-transparent">
                                         <span
-                                            class="bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full mb-2 inline-block">TRENDING</span>
-                                        <h4 class="text-white font-bold text-sm leading-tight">Eid Collection</h4>
+                                            class="bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full mb-2 inline-block uppercase tracking-wider">
+                                            Trending
+                                        </span>
+                                        <h4 class="text-white font-bold text-base md:text-lg leading-tight">
+                                            Eid Collection
+                                        </h4>
                                     </div>
                                 </div>
 
                                 <div
-                                    class="relative rounded-lg overflow-hidden group/card bg-gray-100 h-full min-h-[180px] md:min-h-[220px]">
-                                    <div class="absolute inset-0 bg-gray-300">
-                                    </div>
-                                    <div
-                                        class="absolute inset-0 bg-black/20 group-hover/card:bg-black/10 transition-colors">
-                                    </div>
-                                    <div
-                                        class="absolute bottom-0 left-0 p-4 w-full bg-gradient-to-t from-black/80 to-transparent">
+                                    class="relative rounded-lg overflow-hidden group/card h-full min-h-[180px] md:min-h-[220px] order-first md:order-none cursor-pointer">
+                                
+                                    <img src="{{ asset('assets/img/summer_collection.webp') }}" alt="Eid Collection"
+                                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105">
+                                
+                                    <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300"></div>
+                                
+                                    <div class="absolute bottom-0 left-0 p-4 w-full bg-gradient-to-t from-black/90 via-black/40 to-transparent">
                                         <span
-                                            class="bg-white text-primary text-[9px] font-bold px-2 py-0.5 rounded-full mb-2 inline-block">EDITOR'S
-                                            PICK</span>
-                                        <h4 class="text-white font-bold text-sm leading-tight">Monochrome Series</h4>
+                                            class="bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full mb-2 inline-block uppercase tracking-wider">
+                                            Trending
+                                        </span>
+                                        <h4 class="text-white font-bold text-base md:text-lg leading-tight">
+                                            Summer 
+                                        </h4>
                                     </div>
                                 </div>
+
+
+                                
 
                             </div>
                         </div>
@@ -182,16 +192,21 @@
                                 </ul>
                             </div>
                             <div
-                                class="bg-secondary/30 rounded-lg p-4 md:p-5 flex flex-col justify-end relative overflow-hidden group/card shadow-inner md:col-span-2 lg:col-span-1">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
-                                <!-- Placeholder Image Background -->
-                                <div class="absolute inset-0 bg-gray-300"></div>
-
+                                class="relative rounded-lg p-4 md:p-5 flex flex-col justify-end overflow-hidden group/card shadow-inner md:col-span-2 lg:col-span-1 h-full min-h-[180px]">
+                            
+                                <img src="{{ asset(path: 'assets/img/luxury_formal.webp') }}" alt="Luxury Formals"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
+                            
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10"></div>
+                            
+                                <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300 z-10"></div>
+                            
                                 <div class="relative z-20">
-                                    <h4 class="font-bold text-white mb-1 text-sm">Luxury Formals</h4>
+                                    <h4 class="font-bold text-white mb-1 text-sm tracking-wide">Luxury Formals</h4>
                                     <span
-                                        class="text-[10px] font-bold text-white/90 cursor-pointer group-hover/card:underline">Shop
-                                        Collection &rarr;</span>
+                                        class="text-[10px] font-bold text-white/90 cursor-pointer group-hover/card:underline flex items-center gap-1">
+                                        Shop Collection &rarr;
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -378,8 +393,8 @@
 
                                 <a href="#"
                                     class="relative rounded-lg overflow-hidden group/card cursor-pointer block h-[120px] md:h-full">
-                                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600&auto=format&fit=crop"
-                                        alt="Work Wear"
+                                    <img src="{{ asset(path: 'assets/img/eid_collection.webp') }}"
+                                        alt="eid Wear"
                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-90 transition-opacity">
@@ -388,9 +403,9 @@
                                     <div
                                         class="absolute bottom-0 left-0 p-3 md:p-4 w-full translate-y-2 group-hover/card:translate-y-0 transition-transform duration-300">
                                         <p class="text-white/80 text-[10px] uppercase tracking-wider mb-1 font-medium">
-                                            Daily &
-                                            Professional</p>
-                                        <h4 class="text-white font-bold text-base md:text-lg leading-none">Work Wear
+                                            Ramzan &
+                                            Eid-Ul-Fitr</p>
+                                        <h4 class="text-white font-bold text-base md:text-lg leading-none">Eid Wear
                                         </h4>
                                         <div
                                             class="h-0.5 w-0 bg-white mt-2 group-hover/card:w-8 md:group-hover/card:w-12 transition-all duration-300 delay-100">
@@ -400,8 +415,8 @@
 
                                 <a href="#"
                                     class="relative rounded-lg overflow-hidden group/card cursor-pointer block h-[120px] md:h-full">
-                                    <img src="https://images.unsplash.com/photo-1620336215354-94653653dc27?q=80&w=600&auto=format&fit=crop"
-                                        alt="Festive"
+                                    <img src="{{ asset(path: 'assets/img/summer_collection.webp') }}"
+                                        alt="Summer Collection"
                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-90 transition-opacity">
@@ -421,7 +436,7 @@
 
                                 <a href="#"
                                     class="relative rounded-lg overflow-hidden group/card cursor-pointer block h-[120px] md:h-full md:col-span-2 lg:col-span-1">
-                                    <img src="https://images.unsplash.com/photo-1549488352-7067d0a27364?q=80&w=600&auto=format&fit=crop"
+                                    <img src="{{ asset(path: 'assets/img/luxury_formal.webp') }}"
                                         alt="Wedding"
                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
                                     <div

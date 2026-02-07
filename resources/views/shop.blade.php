@@ -54,19 +54,16 @@
                             </h4>
                             <div class="space-y-2">
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="radio" name="category"
-                                        class="border-gray-300 text-primary focus:ring-primary checked:--color-foreground" checked>
+                                    <input type="radio" name="category" class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary" checked>
                                     <span class="text-sm text-foreground group-hover:text-primary transition">All</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="radio" name="category"
-                                        class="border-gray-300 text-primary focus:ring-primary">
+                                    <input type="radio" name="category" class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary">
                                     <span
                                         class="text-sm text-foreground group-hover:text-primary transition">Unstitched</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="radio" name="category"
-                                        class="border-gray-300 text-primary focus:ring-primary">
+                                    <input type="radio" name="category" class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Stitched
                                         (Pret)</span>
                                 </label>
@@ -102,52 +99,48 @@
                             </h4>
                             <div class="space-y-2 max-h-40 overflow-y-auto pr-2 custom-scrollbar">
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
-                                    <span
-                                        class="text-sm text-foreground group-hover:text-primary transition">Sapphire</span>
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-foreground group-hover:text-primary transition">
+                                        Sapphire
+                                    </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
-                                    <span
-                                        class="text-sm text-foreground group-hover:text-primary transition">Khaadi</span>
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-foreground group-hover:text-primary transition">
+                                        Khaadi
+                                    </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
-                                    <span class="text-sm text-foreground group-hover:text-primary transition">Gul
-                                        Ahmed</span>
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-foreground group-hover:text-primary transition">
+                                        Gul Ahmed
+                                    </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
-                                    <span
-                                        class="text-sm text-foreground group-hover:text-primary transition">Maria.B</span>
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-foreground group-hover:text-primary transition">
+                                        Maria.B
+                                    </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
-                                    <span
-                                        class="text-sm text-foreground group-hover:text-primary transition">Limelight</span>
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-foreground group-hover:text-primary transition">
+                                        Limelight
+                                    </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">J. (Junaid
                                         Jamshed)</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Sana
                                         Safinaz</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
-                                    <span
-                                        class="text-sm text-foreground group-hover:text-primary transition">Beechtree</span>
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-foreground group-hover:text-primary transition">Beechtree</span>
                                 </label>
                             </div>
                         </div>
@@ -158,7 +151,7 @@
                             </h4>
                             <div class="flex flex-wrap gap-2">
                                 <button
-                                    class="px-3 py-1 bg-secondary text-xs font-medium rounded-full hover:bg-primary hover:text-white transition">Lawn</button>
+                                    class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition selected:bg-primary selected:text-white">Lawn</button>
                                 <button
                                     class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition">Chiffon</button>
                                 <button
@@ -180,20 +173,17 @@
                             </h4>
                             <div class="space-y-2">
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">1
                                         Piece</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">2
                                         Piece</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">3
                                         Piece</span>
                                 </label>
@@ -206,26 +196,21 @@
                             </h4>
                             <div class="space-y-2">
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Summer /
                                         Lawn</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
-                                    <span
-                                        class="text-sm text-foreground group-hover:text-primary transition">Winter</span>
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-foreground group-hover:text-primary transition">Winter</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Luxury /
                                         Wedding</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox"
-                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Eid
                                         Edit</span>
                                 </label>
