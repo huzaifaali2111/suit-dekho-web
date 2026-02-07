@@ -14,7 +14,7 @@
 <!-- Main Header -->
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
     <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16 md:h-20">
+        <div class="flex justify-between items-center h-15 md:h-15">
             <!-- Logo -->
             <div class="flex items-center gap-2 shrink-0">
                 <div
