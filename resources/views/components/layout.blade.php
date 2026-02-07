@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="{{ asset(path: 'assets/css/style.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- <x-style /> -->
-    
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 </head>
 
 <body class="bg-background text-foreground font-sans antialiased text-sm">
