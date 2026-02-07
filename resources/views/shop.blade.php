@@ -16,23 +16,58 @@
                 </div>
 
                 <!-- Mobile Filter Toggle & Sort -->
-                <div class="flex gap-2 w-full md:w-auto">
+                <div class="flex flex-col xs:flex-row gap-2 w-full md:w-auto">
                     <button id="mobileFilterButton"
-                        class="md:hidden flex-1 flex items-center justify-center gap-2 bg-white border border-border px-4 py-2.5 rounded-lg text-sm font-bold shadow-sm">
-                        <i class="fa-solid fa-filter"></i> Filters
+                        class="md:hidden flex-1 flex items-center justify-center gap-2 bg-white border border-border px-4 py-2.5 rounded-lg text-sm font-bold text-foreground shadow-sm hover:border-primary active:bg-secondary transition-colors duration-200">
+                        <i class="fa-solid fa-filter text-primary"></i> Filters
                     </button>
-                    <div class="relative flex-1 md:w-48">
-                        <select
-                            class="w-full appearance-none bg-white border border-border px-4 py-2.5 pr-8 rounded-lg text-sm font-medium focus:outline-none focus:border-primary cursor-pointer">
-                            <option>Sort by: Newest</option>
-                            <option>Price: Low to High</option>
-                            <option>Price: High to Low</option>
-                            <option>Popularity</option>
-                        </select>
-                        <div
-                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-muted-foreground">
-                            <i class="fa-solid fa-chevron-down text-xs"></i>
+
+                    <!-- Custom Sort Dropdown -->
+                    <div class="relative flex-1 md:w-48" id="customSortDropdown">
+                        <button type="button" id="sortDropdownTrigger"
+                            class="w-full flex items-center justify-between bg-white border border-border px-4 py-2.5 rounded-lg text-sm font-medium text-foreground shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors duration-200">
+                            <span id="selectedSortText">Sort by: Newest</span>
+                            <i class="fa-solid fa-chevron-down text-xs text-muted-foreground transition-transform duration-200"
+                                id="sortDropdownIcon"></i>
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <div id="sortOptions"
+                            class="hidden absolute z-50 mt-1 w-full bg-white border border-border rounded-lg shadow-lg overflow-hidden transition-all duration-200 origin-top">
+                            <ul class="py-1">
+                                <li>
+                                    <button type="button"
+                                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-primary hover:text-white transition-colors duration-150 sort-option selected text-primary font-bold bg-primary/5"
+                                        data-value="newest">
+                                        Sort by: Newest
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button"
+                                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-primary hover:text-white transition-colors duration-150 sort-option text-foreground"
+                                        data-value="price_asc">
+                                        Price: Low to High
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button"
+                                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-primary hover:text-white transition-colors duration-150 sort-option text-foreground"
+                                        data-value="price_desc">
+                                        Price: High to Low
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button"
+                                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-primary hover:text-white transition-colors duration-150 sort-option text-foreground"
+                                        data-value="popularity">
+                                        Popularity
+                                    </button>
+                                </li>
+                            </ul>
                         </div>
+
+                        <!-- Hidden Input for Form Submission -->
+                        <input type="hidden" name="sort_by" id="sortByInput" value="newest">
                     </div>
                 </div>
             </div>
@@ -54,16 +89,19 @@
                             </h4>
                             <div class="space-y-2">
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="radio" name="category" class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary" checked>
+                                    <input type="radio" name="category"
+                                        class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary" checked>
                                     <span class="text-sm text-foreground group-hover:text-primary transition">All</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="radio" name="category" class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="radio" name="category"
+                                        class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary">
                                     <span
                                         class="text-sm text-foreground group-hover:text-primary transition">Unstitched</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="radio" name="category" class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="radio" name="category"
+                                        class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Stitched
                                         (Pret)</span>
                                 </label>
@@ -99,48 +137,57 @@
                             </h4>
                             <div class="space-y-2 max-h-40 overflow-y-auto pr-2 custom-scrollbar">
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">
                                         Sapphire
                                     </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">
                                         Khaadi
                                     </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">
                                         Gul Ahmed
                                     </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">
                                         Maria.B
                                     </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">
                                         Limelight
                                     </span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">J. (Junaid
                                         Jamshed)</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Sana
                                         Safinaz</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
-                                    <span class="text-sm text-foreground group-hover:text-primary transition">Beechtree</span>
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <span
+                                        class="text-sm text-foreground group-hover:text-primary transition">Beechtree</span>
                                 </label>
                             </div>
                         </div>
@@ -173,17 +220,20 @@
                             </h4>
                             <div class="space-y-2">
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">1
                                         Piece</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">2
                                         Piece</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">3
                                         Piece</span>
                                 </label>
@@ -196,21 +246,26 @@
                             </h4>
                             <div class="space-y-2">
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Summer /
                                         Lawn</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
-                                    <span class="text-sm text-foreground group-hover:text-primary transition">Winter</span>
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <span
+                                        class="text-sm text-foreground group-hover:text-primary transition">Winter</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Luxury /
                                         Wedding</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                    <input type="checkbox"
+                                        class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
                                     <span class="text-sm text-foreground group-hover:text-primary transition">Eid
                                         Edit</span>
                                 </label>
@@ -475,117 +530,179 @@
         </div>
 
         <!-- Mobile Filter Drawer -->
-        <div x-show="mobileFiltersOpen" style="display: none;" class="relative z-50" aria-labelledby="slide-over-title"
-            role="dialog" aria-modal="true">
-            <div x-show="mobileFiltersOpen" x-transition:enter="ease-in-out duration-500"
-                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="fixed inset-0 bg-foreground/20 backdrop-blur-sm transition-opacity" <!-- Mobile Filter Drawer -->
-                <div id="mobileFilterDrawer" class="relative z-50 hidden" aria-labelledby="slide-over-title"
-                    role="dialog" aria-modal="true">
-                    <div id="mobileFilterOverlay"
-                        class="fixed inset-0 bg-black/50 transition-opacity opacity-0 transition-ease-in-out duration-500">
-                    </div>
+        <div id="mobileFilterDrawer" class="relative z-50 hidden" aria-labelledby="slide-over-title" role="dialog"
+            aria-modal="true">
+            <!-- Background backdrop, show/hide based on slide-over state. -->
+            <div id="mobileFilterOverlay"
+                class="fixed inset-0 bg-black/50 transition-opacity opacity-0 ease-in-out duration-500"></div>
 
-                    <div class="fixed inset-0 overflow-hidden">
-                        <div class="absolute inset-0 overflow-hidden">
-                            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-                                <div id="mobileFilterPanel"
-                                    class="pointer-events-auto relative w-screen max-w-xs transform transition ease-in-out duration-500 translate-x-full">
-                                    <div class="flex h-full flex-col overflow-y-scroll bg-background shadow-2xl">
-                                        <div class="px-6 py-4 border-b border-border bg-secondary/30">
-                                            <div class="flex items-center justify-between">
-                                                <h2 class="text-lg font-display font-bold text-foreground">Filters</h2>
-                                                <button id="closeFilterButton" type="button"
-                                                    class="rounded-md text-muted-foreground hover:text-foreground focus:outline-none">
-                                                    <span class="sr-only">Close panel</span>
-                                                    <i class="fa-solid fa-xmark text-xl"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="relative mt-6 flex-1 px-6 pb-20">
+            <div class="fixed inset-0 overflow-hidden">
+                <div class="absolute inset-0 overflow-hidden">
+                    <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                        <div id="mobileFilterPanel"
+                            class="pointer-events-auto relative w-screen max-w-xs transform transition ease-in-out duration-500 translate-x-full">
+                            <div class="flex h-full flex-col overflow-y-scroll bg-background shadow-2xl">
+                                <div class="px-6 py-4 border-b border-border bg-secondary/30">
+                                    <div class="flex items-center justify-between">
+                                        <h2 class="text-lg font-display font-bold text-foreground">Filters</h2>
+                                        <button id="closeFilterButton" type="button"
+                                            class="rounded-md text-muted-foreground hover:text-foreground focus:outline-none">
+                                            <span class="sr-only">Close panel</span>
+                                            <i class="fa-solid fa-xmark text-xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="relative mt-6 flex-1 px-6 pb-20">
 
-                                            <!-- Mobile Filter Content -->
-                                            <div class="mb-6">
-                                                <h4
-                                                    class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
-                                                    Category</h4>
-                                                <div class="space-y-3">
-                                                    <label class="flex items-center gap-2 cursor-pointer"><input
-                                                            type="radio" name="m-category"
-                                                            class="border-gray-300 text-primary" checked>
-                                                        <span class="text-sm">All</span></label>
-                                                    <label class="flex items-center gap-2 cursor-pointer"><input
-                                                            type="radio" name="m-category"
-                                                            class="border-gray-300 text-primary"> <span
-                                                            class="text-sm">Unstitched</span></label>
-                                                    <label class="flex items-center gap-2 cursor-pointer"><input
-                                                            type="radio" name="m-category"
-                                                            class="border-gray-300 text-primary"> <span
-                                                            class="text-sm">Stitched</span></label>
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-6">
-                                                <h4
-                                                    class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
-                                                    Price Range</h4>
-                                                <div class="flex items-center justify-between text-sm font-bold mb-2">
-                                                    <span>Rs. <span id="minPriceTextMobile">0</span></span>
-                                                    <span>Rs. <span id="maxPriceTextMobile">20000</span></span>
-                                                </div>
-                                                <div class="relative h-1 bg-gray-200 rounded-full mb-4">
-                                                    <div id="mobileSliderProgress"
-                                                        class="absolute h-full bg-primary rounded-full"
-                                                        style="left: 0%; right: 0%">
-                                                    </div>
-                                                    <input type="range" id="minPriceInputMobile" min="0" max="20000"
-                                                        step="100" value="0"
-                                                        class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-0">
-                                                    <input type="range" id="maxPriceInputMobile" min="0" max="20000"
-                                                        step="100" value="20000"
-                                                        class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-0">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-6">
-                                                <h4
-                                                    class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
-                                                    Brands</h4>
-                                                <div class="space-y-3">
-                                                    <label class="flex items-center gap-2 cursor-pointer"><input
-                                                            type="checkbox"
-                                                            class="rounded border-gray-300 text-primary"> <span
-                                                            class="text-sm">Sapphire</span></label>
-                                                    <label class="flex items-center gap-2 cursor-pointer"><input
-                                                            type="checkbox"
-                                                            class="rounded border-gray-300 text-primary"> <span
-                                                            class="text-sm">Khaadi</span></label>
-                                                    <label class="flex items-center gap-2 cursor-pointer"><input
-                                                            type="checkbox"
-                                                            class="rounded border-gray-300 text-primary"> <span
-                                                            class="text-sm">Gul Ahmed</span></label>
-                                                    <label class="flex items-center gap-2 cursor-pointer"><input
-                                                            type="checkbox"
-                                                            class="rounded border-gray-300 text-primary"> <span
-                                                            class="text-sm">Maria.B</span></label>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div
-                                            class="absolute bottom-0 left-0 w-full p-4 bg-white border-t border-border">
-                                            <button
-                                                class="w-full bg-primary text-white font-bold py-3 rounded-lg shadow-lg"
-                                                @click="mobileFiltersOpen = false">Apply Filters</button>
+                                    <!-- Mobile Filter Content -->
+                                    <div class="mb-6">
+                                        <h4
+                                            class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
+                                            Category</h4>
+                                        <div class="space-y-3">
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio"
+                                                    name="m-category"
+                                                    class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary"
+                                                    checked>
+                                                <span class="text-sm">All</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio"
+                                                    name="m-category"
+                                                    class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Unstitched</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio"
+                                                    name="m-category"
+                                                    class="w-4 h-4 accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Stitched</span></label>
                                         </div>
                                     </div>
+
+                                    <div class="mb-6">
+                                        <h4
+                                            class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
+                                            Price Range</h4>
+                                        <div class="flex items-center justify-between text-sm font-bold mb-2">
+                                            <span>Rs. <span id="minPriceTextMobile">0</span></span>
+                                            <span>Rs. <span id="maxPriceTextMobile">20000</span></span>
+                                        </div>
+                                        <div class="relative h-1 bg-gray-200 rounded-full mb-4">
+                                            <div id="mobileSliderProgress"
+                                                class="absolute h-full bg-primary rounded-full"
+                                                style="left: 0%; right: 0%">
+                                            </div>
+                                            <input type="range" id="minPriceInputMobile" min="0" max="20000" step="100"
+                                                value="0"
+                                                class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-0">
+                                            <input type="range" id="maxPriceInputMobile" min="0" max="20000" step="100"
+                                                value="20000"
+                                                class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none -top-0">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-6">
+                                        <h4
+                                            class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
+                                            Brands</h4>
+                                        <div class="space-y-3">
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Sapphire</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Khaadi</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Gul Ahmed</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Maria.B</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Limelight</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">J. (Junaid Jamshed)</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Sana Safinaz</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Beechtree</span></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Fabric (Mobile) -->
+                                    <div class="mb-6">
+                                        <h4
+                                            class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
+                                            Fabric</h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            <button type="button"
+                                                class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition">Lawn</button>
+                                            <button type="button"
+                                                class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition">Chiffon</button>
+                                            <button type="button"
+                                                class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition">Cotton</button>
+                                            <button type="button"
+                                                class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition">Silk</button>
+                                            <button type="button"
+                                                class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition">Khaddar</button>
+                                            <button type="button"
+                                                class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition">Linen</button>
+                                            <button type="button"
+                                                class="px-3 py-1 bg-white border border-border text-xs font-medium rounded-full hover:border-primary hover:text-primary transition">Organza</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pieces (Mobile) -->
+                                    <div class="mb-6">
+                                        <h4
+                                            class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
+                                            Pieces</h4>
+                                        <div class="space-y-3">
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">1 Piece</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">2 Piece</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">3 Piece</span></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Collection (Mobile) -->
+                                    <div class="mb-6">
+                                        <h4
+                                            class="text-xs font-bold uppercase text-muted-foreground mb-3 tracking-wider">
+                                            Collection</h4>
+                                        <div class="space-y-3">
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Summer / Lawn</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Winter</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Luxury / Wedding</span></label>
+                                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                                                    class="w-4 h-4 rounded accent-primary border-gray-300 focus:ring-primary">
+                                                <span class="text-sm">Eid Edit</span></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="absolute bottom-0 left-0 w-full p-4 bg-white border-t border-border">
+                                    <button class="w-full bg-primary text-white font-bold py-3 rounded-lg shadow-lg"
+                                        @click="mobileFiltersOpen = false">Apply Filters</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
     </main>
     <script src="{{ asset(path: 'assets/js/shop.js') }}"></script>

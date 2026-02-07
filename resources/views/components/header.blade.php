@@ -29,10 +29,10 @@
             <nav
                 class="hidden md:flex items-center space-x-4 lg:space-x-8 text-xs font-bold uppercase tracking-widest text-foreground/80 h-full">
 
-                <!-- NEW IN -->
+                <!-- Hot Now -->
                 <div class="group relative h-full flex items-center">
                     <a href="#" class="hover:text-primary transition-colors py-2 relative flex items-center gap-1">
-                        NEW IN
+                        Hot Selling
                         <span
                             class="absolute -top-1 -right-4 text-[9px] text-primary font-bold animate-pulse">NEW</span>
                     </a>
@@ -79,11 +79,14 @@
                                         </h4>
                                         <ul class="space-y-2 text-muted-foreground font-bold text-[11px]">
                                             <li class="hover:text-foreground cursor-pointer transition-colors truncate">
-                                                <a href="">Sapphire Latest</a></li>
+                                                <a href="">Sapphire Latest</a>
+                                            </li>
                                             <li class="hover:text-foreground cursor-pointer transition-colors truncate">
-                                                <a href="">Khaadi New</a></li>
+                                                <a href="">Khaadi New</a>
+                                            </li>
                                             <li class="hover:text-foreground cursor-pointer transition-colors truncate">
-                                                <a href="">Maria.B Edit</a></li>
+                                                <a href="">Maria.B Edit</a>
+                                            </li>
                                         </ul>
                                     </div>
 
@@ -96,13 +99,16 @@
 
                                 <div
                                     class="relative rounded-lg overflow-hidden group/card h-full min-h-[180px] md:min-h-[220px] order-first md:order-none cursor-pointer">
-                                
+
                                     <img src="{{ asset('assets/img/eid_collection.webp') }}" alt="Eid Collection"
                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105">
-                                
-                                    <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300"></div>
-                                
-                                    <div class="absolute bottom-0 left-0 p-4 w-full bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+
+                                    <div
+                                        class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300">
+                                    </div>
+
+                                    <div
+                                        class="absolute bottom-0 left-0 p-4 w-full bg-gradient-to-t from-black/90 via-black/40 to-transparent">
                                         <span
                                             class="bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full mb-2 inline-block uppercase tracking-wider">
                                             Trending
@@ -115,25 +121,28 @@
 
                                 <div
                                     class="relative rounded-lg overflow-hidden group/card h-full min-h-[180px] md:min-h-[220px] order-first md:order-none cursor-pointer">
-                                
+
                                     <img src="{{ asset('assets/img/summer_collection.webp') }}" alt="Eid Collection"
                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105">
-                                
-                                    <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300"></div>
-                                
-                                    <div class="absolute bottom-0 left-0 p-4 w-full bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+
+                                    <div
+                                        class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300">
+                                    </div>
+
+                                    <div
+                                        class="absolute bottom-0 left-0 p-4 w-full bg-gradient-to-t from-black/90 via-black/40 to-transparent">
                                         <span
                                             class="bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full mb-2 inline-block uppercase tracking-wider">
                                             Trending
                                         </span>
                                         <h4 class="text-white font-bold text-base md:text-lg leading-tight">
-                                            Summer 
+                                            Summer
                                         </h4>
                                     </div>
                                 </div>
 
 
-                                
+
 
                             </div>
                         </div>
@@ -193,14 +202,18 @@
                             </div>
                             <div
                                 class="relative rounded-lg p-4 md:p-5 flex flex-col justify-end overflow-hidden group/card shadow-inner md:col-span-2 lg:col-span-1 h-full min-h-[180px]">
-                            
+
                                 <img src="{{ asset(path: 'assets/img/luxury_formal.webp') }}" alt="Luxury Formals"
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
-                            
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10"></div>
-                            
-                                <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300 z-10"></div>
-                            
+
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10">
+                                </div>
+
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300 z-10">
+                                </div>
+
                                 <div class="relative z-20">
                                     <h4 class="font-bold text-white mb-1 text-sm tracking-wide">Luxury Formals</h4>
                                     <span
@@ -393,8 +406,7 @@
 
                                 <a href="#"
                                     class="relative rounded-lg overflow-hidden group/card cursor-pointer block h-[120px] md:h-full">
-                                    <img src="{{ asset(path: 'assets/img/eid_collection.webp') }}"
-                                        alt="eid Wear"
+                                    <img src="{{ asset(path: 'assets/img/eid_collection.webp') }}" alt="eid Wear"
                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-90 transition-opacity">
@@ -436,8 +448,7 @@
 
                                 <a href="#"
                                     class="relative rounded-lg overflow-hidden group/card cursor-pointer block h-[120px] md:h-full md:col-span-2 lg:col-span-1">
-                                    <img src="{{ asset(path: 'assets/img/luxury_formal.webp') }}"
-                                        alt="Wedding"
+                                    <img src="{{ asset(path: 'assets/img/luxury_formal.webp') }}" alt="Wedding"
                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-90 transition-opacity">
