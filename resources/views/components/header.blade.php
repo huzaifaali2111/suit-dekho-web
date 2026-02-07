@@ -20,7 +20,7 @@
                 <div
                     class="w-7 h-7 md:w-8 md:h-8 bg-primary rounded flex items-center justify-center text-white font-display font-bold text-base md:text-lg">
                     S</div>
-                <a href="#" class="text-xl md:text-2xl font-display font-bold text-foreground tracking-tight">
+                <a href="{{ url('index') }}" class="text-xl md:text-2xl font-display font-bold text-foreground tracking-tight">
                     Suit<span class="text-primary">Dekho</span>
                 </a>
             </div>
@@ -29,7 +29,7 @@
             <nav
                 class="hidden md:flex items-center space-x-4 lg:space-x-8 text-xs font-bold uppercase tracking-widest text-foreground/80 h-full">
 
-                <!-- Hot Now -->
+                <!-- Hot Selling -->
                 <div class="group relative h-full flex items-center">
                     <a href="#" class="hover:text-primary transition-colors py-2 relative flex items-center gap-1">
                         Hot Selling
@@ -411,6 +411,8 @@
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-90 transition-opacity">
                                     </div>
+                                    <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300">
+                                    </div>
 
                                     <div
                                         class="absolute bottom-0 left-0 p-3 md:p-4 w-full translate-y-2 group-hover/card:translate-y-0 transition-transform duration-300">
@@ -433,6 +435,8 @@
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-90 transition-opacity">
                                     </div>
+                                    <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300">
+                                    </div>
 
                                     <div
                                         class="absolute bottom-0 left-0 p-3 md:p-4 w-full translate-y-2 group-hover/card:translate-y-0 transition-transform duration-300">
@@ -452,6 +456,8 @@
                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-90 transition-opacity">
+                                    </div>
+                                    <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/20 transition-colors duration-300">
                                     </div>
 
                                     <div

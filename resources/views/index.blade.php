@@ -8,9 +8,15 @@
 
                     <!-- Left: Search & Filters (Utility Focus) -->
                     <div class="w-full md:w-2/3">
-                        <h1 class="text-2xl md:text-3xl font-display font-bold text-foreground mb-2">
-                            Find exactly what you need.
-                        </h1>
+                        <div class="flex items-center gap-4 mb-2 justify-between">
+                            <h1 class="text-2xl md:text-3xl font-display font-bold text-foreground">
+                                Find exactly what you need.
+                            </h1>
+                            <a href="{{ url('shop') }}"
+                                class="text-sm font-bold text-primary hover:text-primary/80 flex items-center gap-1 transition ">
+                                Browse All Products <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
                         <p class="text-muted-foreground text-sm mb-6">
                             Compare 12,000+ suits from Sapphire, Khaadi, and more. Filter by fabric, price, and style.
                         </p>
@@ -18,18 +24,20 @@
                         <!-- Search Module -->
                         <div
                             class="bg-secondary/30 p-1 rounded-xl border border-border flex shadow-sm mb-4 transition-colors duration-200 focus-within:border-[hsl(343_62%_54%)] focus-within:ring-1 focus-within:ring-[hsl(343_62%_54%)]">
-                        
+
                             <div class="flex-1 flex items-center px-3">
                                 <i class="fa-solid fa-magnifying-glass text-muted-foreground mr-3"></i>
-                        
-                                <input type="text" id="hero-search-input" placeholder="Search by brand, fabric (e.g. 'Lawn 3pc')..."
+
+                                <input type="text" id="hero-search-input"
+                                    placeholder="Search by brand, fabric (e.g. 'Lawn 3pc')..."
                                     class="w-full bg-transparent outline-none border-none focus:ring-0 text-sm py-2.5">
                             </div>
-                        
-                            <button class="bg-primary text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition">
+
+                            <button
+                                class="bg-primary text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition">
                                 Search
                             </button>
-                        
+
                         </div>
 
                         <!-- Quick Pills -->
