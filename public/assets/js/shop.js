@@ -1,8 +1,4 @@
-/**
- * Shop UI Interaction Script
- * Handles Price Range Slider visuals and Mobile Filter Drawer toggling.
- * NOTE: Actual filtering logic is handled by backend.
- */
+
 
 document.addEventListener('DOMContentLoaded', () => {
 

@@ -1,4 +1,4 @@
-<footer class="bg-foreground text-background py-12 border-t border-border mb-14 md:mb-0">
+<footer class="bg-foreground text-background pt-12 pb-6 border-t border-border mb-14 md:mb-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
             <!-- Brand Info -->

@@ -147,6 +147,110 @@
     .group:hover .animate-marquee {
         animation-play-state: paused;
     }
+
+    @keyframes double-tap {
+        0% {
+            opacity: 0;
+            transform: translate(20px, 20px) scale(0.9) rotate(0deg);
+        }
+
+        10% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1) rotate(0deg);
+        }
+
+        /* Tap 1 */
+        30% {
+            transform: scale(0.9) rotate(-10deg);
+        }
+
+        45% {
+            transform: scale(1) rotate(0deg);
+        }
+
+        /* Tap 2 */
+        60% {
+            transform: scale(0.9) rotate(-10deg);
+        }
+
+        75% {
+            transform: scale(1) rotate(0deg);
+        }
+
+        90% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(0, 0) scale(1);
+        }
+    }
+
+    @keyframes tap-ripple {
+
+        0%,
+        25% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+        }
+
+        /* Ripple 1 */
+        30% {
+            transform: translate(-50%, -50%) scale(0.5);
+            opacity: 0.8;
+        }
+
+        45% {
+            transform: translate(-50%, -50%) scale(1.5);
+            opacity: 0;
+        }
+
+        /* Pause */
+        55% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+        }
+
+        /* Ripple 2 */
+        60% {
+            transform: translate(-50%, -50%) scale(0.5);
+            opacity: 0.8;
+        }
+
+        75% {
+            transform: translate(-50%, -50%) scale(1.5);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .animate-double-tap-hand {
+        animation: double-tap 2.5s ease-in-out forwards;
+        animation-delay: 1s;
+    }
+
+    .animate-tap-ripple {
+        animation: tap-ripple 2.5s ease-in-out forwards;
+        animation-delay: 1s;
+    }
+
+    @keyframes fade-in-out {
+
+        0%,
+        100% {
+            opacity: 0;
+        }
+
+        20%,
+        80% {
+            opacity: 1;
+        }
+    }
 }
 
 
