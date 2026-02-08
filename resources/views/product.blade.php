@@ -28,21 +28,27 @@
 
                         <!-- Double Tap Hint Animation -->
                         <!-- Attractive Double Tap Hint -->
-                        <div id="gallery-hint" class="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none opacity-0 animate-[fade-in-out_4s_ease-in-out_forwards_0.5s]">
-                            
+                        <div id="gallery-hint"
+                            class="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none opacity-0">
+
                             <!-- Hand Animation Container -->
                             <div class="relative w-24 h-24 mb-2">
                                 <!-- Ripple Effect (Synced with animation) -->
-                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white/40 rounded-full animate-tap-ripple"></div>
-                                
+                                <div
+                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white/40 rounded-full animate-tap-ripple">
+                                </div>
+
                                 <!-- Hand Icon -->
-                                <div class="absolute inset-0 flex items-center justify-center animate-double-tap-hand drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-                                    <i class="fa-solid fa-hand-pointer text-5xl text-white transform rotate-[-15deg] stroke-black stroke-2"></i>
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center animate-double-tap-hand drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+                                    <i
+                                        class="fa-solid fa-hand-pointer text-5xl text-white transform rotate-[-15deg] stroke-black stroke-2"></i>
                                 </div>
                             </div>
 
                             <!-- Text Pill -->
-                            <div class="bg-black/40 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
+                            <div
+                                class="bg-black/40 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
                                 Double Tap to View
                             </div>
                         </div>

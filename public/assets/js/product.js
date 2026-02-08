@@ -233,7 +233,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- Mobile Swipe Support ---
     if (galleryImage) {
         let touchStartX = 0;
         let touchEndX = 0;
@@ -243,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { passive: true });
 
         galleryImage.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
+            touchEndX = e.changedTouches[0].screenX; // Corrected to use changedTouches
             handleSwipe();
         }, { passive: true });
 
@@ -256,5 +255,55 @@ document.addEventListener('DOMContentLoaded', function () {
                 prevImage(); // Swipe Right -> Prev
             }
         }
+    }
+
+    // --- Hint Animation Logic ---
+    const hintElement = document.getElementById('gallery-hint');
+    if (hintElement) {
+        let playCount = 0;
+        const maxPlays = 3;
+        const intervalTime = 10000; // 10 seconds
+
+        const handElement = hintElement.querySelector('.animate-double-tap-hand');
+        const rippleElement = hintElement.querySelector('.animate-tap-ripple');
+        const textElement = hintElement.querySelector('.animate-\\[fade-in-out_2\\.5s_ease-in-out_forwards_1s\\]'); // Select the text element
+
+
+        function playHint() {
+            if (playCount >= maxPlays) return;
+
+            // 1. Remove animation classes to reset
+            hintElement.classList.remove('animate-[fade-in-out_4s_ease-in-out_forwards_0.5s]');
+            if (handElement) handElement.classList.remove('animate-double-tap-hand');
+            if (rippleElement) rippleElement.classList.remove('animate-tap-ripple');
+            // Reset text animation if necessary, though it seems part of the container fade in the blade file?
+            // Actually in blade: opacity-0 is on main container. Text has its own animate fade in...
+            // Let's check blade structure. The container has opacity-0 and animate-[fade-in-out...]
+            // The text has animate-[fade-in-out...] too? No, let's look at blade again.
+            // Blade: container has `animate-[fade-in-out_4s_ease-in-out_forwards_0.5s]`
+            // Text has `animate-[fade-in-out_2.5s_ease-in-out_forwards_1s]` (from previous versions, let's double check current blade content)
+
+            // Re-reading blade content from memory/previous turns:
+            // Container: `opacity-0` (and we add/remove `animate-[fade-in-out_4s_ease-in-out_forwards_0.5s]`)
+            // Hand: `animate-double-tap-hand`
+            // Ripple: `animate-tap-ripple`
+
+            // Force reflow
+            void hintElement.offsetWidth;
+
+            // 2. Add animation classes back
+            hintElement.classList.add('animate-[fade-in-out_4s_ease-in-out_forwards_0.5s]');
+            if (handElement) handElement.classList.add('animate-double-tap-hand');
+            if (rippleElement) rippleElement.classList.add('animate-tap-ripple');
+
+            playCount++;
+
+            if (playCount < maxPlays) {
+                setTimeout(playHint, intervalTime);
+            }
+        }
+
+        // Start first play shortly after load
+        setTimeout(playHint, 1000);
     }
 });
